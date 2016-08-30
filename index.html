@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>MenosNormal: La comunidad menos normal</title>
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/menosnormal.css" />
+	<script src="jquery-3.1.0.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="imagenes/logo.png" alt="MenosNormal" />
+		</div>
+		<div class="titular">
+			<h1 class="titulo">
+				MenosNormal: La comunidad menos normal
+			</h1>
+			<div>
+				<a class="filtro" href="#">
+					Stylus
+				</a>
+				<a class="publicar" href="#">
+					Publicar
+				</a>
+			</div>
+			<div class="opciones_fuente_header">
+				<a href="#cursive" class="fuentearHeader">Cursive</a>
+				<a href="#sans-serif" class="fuentearHeader">Sans-serif</a>
+				<a href="#verdana" class="fuentearHeader">Verdana</a>
+			</div>
+			<div class="opciones_tamaño_header">
+				<a href="#12" class="sizearHeader">12</a>
+				<a href="#14" class="sizearHeader">14</a>
+				<a href="#16" class="sizearHeader">16</a>
+				<a href="#18" class="sizearHeader">18</a>
+				<a href="#20" class="sizearHeader">20</a>
+				<a href="#22" class="sizearHeader">22</a>
+			</div>
+			<div class="opciones_color_header">
+				<a href="##B51616" class="colorearHeader">Rojo</a>
+				<a href="##D734C7" class="colorearHeader">Violeta</a>
+				<a href="##6234D7" class="colorearHeader">Azul</a>
+			</div>
+		</div>
+		<div class="usuario">
+			<figure class="avatar">
+				<img src="imagenes/avatar.jpg" alt="freddier" />
+			</figure>
+			<a class="flechita" href="#"></a>
+		</div>
+	</header>
+	<nav>
+		<ul class="menu">
+			<li><a href="#">Python</a></li>
+			<li><a href="#">HTML5</a></li>
+			<li><a href="#">Javascript</a></li>
+			<li><a href="#">CSS3</a></li>
+			<li><a href="#">Django</a></li>
+		</ul>
+	</nav>
+	<form action="">
+		<p>
+			<label for="titulo">título</label>
+			<input placeholder="Ingrese el título" id="titulo" type="text" name="titulo">
+		</p>
+		<p>
+			<label for="autor">autor</label>
+			<input placeholder="Ingrese el autor" id="autor" type="text" name="autor">
+		</p>
+		<p>
+			<label for="tag">tag</label>
+			<input placeholder="Ingrese el tag" id="tag" type="text" name="tag">
+		</p>
+		<input value="Publicar" type="submit" />
+	</form>
+	<div class="opciones_fuente_section">
+		<a href="#cursive" class="fuentearSection">Cursive</a>
+		<a href="#sans-serif" class="fuentearSection">Sans-serif</a>
+		<a href="#verdana" class="fuentearSection">Verdana</a>
+	</div>
+	<div class="opciones_tamaño_section">
+		<a href="#12" class="sizearSection">12</a>
+		<a href="#14" class="sizearSection">14</a>
+		<a href="#16" class="sizearSection">16</a>
+		<a href="#18" class="sizearSection">18</a>
+		<a href="#20" class="sizearSection">20</a>
+		<a href="#22" class="sizearSection">22</a>
+	</div>
+	<div class="opciones_color_section">
+		<a href="##B51616" class="colorearSection">Rojo</a>
+		<a href="##D734C7" class="colorearSection">Violeta</a>
+		<a href="##6234D7" class="colorearSection">Azul</a>
+	</div>
+	<section class="posts">
+		<article class="post">
+			<div class="descripcion">
+				<figure class="imagen">
+					<img src="imagenes/foto.jpg" />
+				</figure>
+				<div class="detalles">
+					<h2 class="titulo">
+						El primer post
+					</h2>
+					<p class="autor">
+						por <a href="#">Gonzalo Schimpf</a>
+					</p>
+					<a class="tag" href="#">PHP</a>
+					<p class="fecha">Hace <strong>20</strong> minutos</p>
+				</div>
+			</div>
+			<div class="acciones">
+				<div class="votos">
+					<a class="up" href="#"></a>
+					<span class="total">0</span>
+					<a class="down" href="#"></a>
+				</div>
+				<div class="datos">
+					<a class="comentarios" href="#">
+						10
+					</a>
+					<a class="estrellita" href="#"></a>
+				</div>
+			</div>
+		</article>
+	</section>
+	<footer>
+		<h3 class="powered">
+			<strong>Powered by Gonzalo</strong>
+			<span class="mejor">2016 es el inicio</span>
+		</h3>
+	</footer>
+	<script>
+
+	$(function(){
+		$('.publicar').on('click', mostrarFormulario);
+
+		function mostrarFormulario() {
+			$('form').slideToggle();
+		}
+
+		
+
+		function procesarFormulario(ev) {
+			ev.preventDefault();
+			var titulo = $('input[name=titulo]').val();
+			var autor = $('input[name=autor]').val();
+			var tag = $('input[name=tag]').val();
+
+			var template = '<article class="post"> \
+				<div class="descripcion"> \
+					<figure class="imagen"> \
+						<img src="imagenes/foto.jpg" /> \
+					</figure> \
+					<div class="detalles"> \
+						<h2 class="titulo"> \
+							'+titulo+' \
+						</h2> \
+						<p class="autor"> \
+							por <a href="#">'+autor+'</a> \
+						</p> \
+						<a class="tag" href="#">'+tag+'</a> \
+						<p class="fecha">Hace <strong>0</strong> minutos </p> \
+					</div> \
+				</div> \
+				<div class="acciones"> \
+					<div class="votos"> \
+						<a class="up" href="#"></a> \
+						<span class="total">0</span> \
+						<a class="down" href="#"></a> \
+					</div> \
+					<div class="datos"> \
+						<a class="comentarios" href="#"> \
+							0 \
+						</a> \
+						<a class="estrellita" href="#"></a> \
+					</div> \
+				</div> \
+			</article>';
+
+			$('.posts').prepend($(template).fadeIn(function() 
+				{
+				$(this).css('display', 'inlineblock');
+			}));
+			$('input[type=text').val('');
+			$('form').slideUp();
+		}
+
+		
+
+		function crearSizeHeader(sizeHeader) {
+			return function() {
+				$('.titular').css('font-size', sizeHeader)
+			}
+		}
+
+		$('.sizearHeader').each(function(i, link) {
+			var sizeHeader = $(link).prop('hash').substring(1);
+			$(link)
+				.css('font-size', sizeHeader)
+				.on('click', crearSizeHeader(sizeHeader+'px'));
+		});
+
+		function crearSizeSection(sizeSection) {
+			return function() {
+				$('section').css('font-size', sizeSection)
+			}
+		}
+
+		$('.sizearSection').each(function(i, link) {
+			var sizeSection = $(link).prop('hash').substring(1);
+			$(link)
+				.css('font-size', sizeSection)
+				.on('click', crearSizeSection(sizeSection+'px'));
+		});
+
+		function crearFuenteHeader(fuenteHeader) {
+			return function() {
+				$('.titular').css('font-family', fuenteHeader)
+			}
+		}
+
+		$('.fuentearHeader').each(function(i, link) {
+			var fuenteHeader = $(link).prop('hash').substring(1);
+			$(link)
+				.css('font-family', fuenteHeader)
+				.on('click', crearFuenteHeader(fuenteHeader));
+		});
+
+		function crearFuenteSection(fuenteSection) {
+			return function() {
+				$('section').css('font-family', fuenteSection)
+			}
+		}
+
+		$('.fuentearSection').each(function(i, link) {
+			var fuenteSection = $(link).prop('hash').substring(1);
+			$(link)
+				.css('font-family', fuenteSection)
+				.on('click', crearFuenteSection(fuenteSection));
+		});
+
+		function crearColorHeader(colorHeader) {
+			return function() {
+				$('header').css('background', colorHeader)
+			}
+		}
+
+		$('.colorearHeader').each(function(i, link) {
+			var colorHeader = $(link).prop('hash').substring(1);
+			$(link)
+				.css('background', colorHeader)
+				.on('click', crearColorHeader(colorHeader));
+		});
+
+		function crearColorSection(colorSection) {
+			return function() {
+				$('section').css('background', colorSection)
+			}
+		}
+
+		$('.colorearSection').each(function(i, link) {
+			var colorSection = $(link).prop('hash').substring(1);
+			$(link)
+				.css('background', colorSection)
+				.on('click', crearColorSection(colorSection));
+		});
+
+		function crearContador(inicial) {
+			var contTotal = inicial || 0;
+			return {
+				up : function() {
+					return ++contTotal;
+				},
+				down : function() {
+					return --contTotal;
+				}
+			};
+		};
+
+		$('.total').each(function(i, elem){
+			var contTotal = crearContador(elem.innerHTML);
+			$(elem)
+				.siblings('.up') 
+					.on('click', function(ev) {
+						ev.preventDefault();
+						$(elem).html(contTotal.up());
+					})
+				.siblings('.down') 
+					.on('click', function(ev) {
+						ev.preventDefault();
+						$(elem).html(contTotal.down());
+					});
+		});
+
+	});
+
+	</script>
+</body>
+</html>
